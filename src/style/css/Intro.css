@@ -1,0 +1,13 @@
+.intro {
+  background-color: #96CDFF;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  .intro .intro__about__text {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 5%; }
+
+/*# sourceMappingURL=Intro.css.map */
