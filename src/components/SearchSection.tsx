@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import logo from '../Wingit.jpg';
+import SearchBar from './SearchBar';
 
 const StyledSearchContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background: #f7f7f7;
     height: 100vh;
     width: 100%;
@@ -20,6 +22,7 @@ const SearchSection = () => {
     return(
         <StyledSearchContainer>
             <StyledLogo src={logo} />
+            <SearchBar />
         </StyledSearchContainer>
     );
 }
