@@ -23,7 +23,7 @@ class SearchBar extends Component<Props> {
     }
     render(){
         return(
-            <StyledInput placeholder="Random_URL"></StyledInput>
+            <StyledInput placeholder="Search a URL"></StyledInput>
         );
     }
 }
