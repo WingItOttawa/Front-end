@@ -16,14 +16,22 @@ const StyledInput = styled.input`
 
 export type Props = {};
 
-class SearchBar extends Component<Props> {
+export type State = {
+    term: string;
+};
+
+class SearchBar extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = { term: '' };
+        this.onInputChange = this.onInputChange.bind(this);
+    }
+    onInputChange(event: React.FormEvent<HTMLInputElement>) {
+        this.setState({term: event.currentTarget.value});
     }
     render(){
         return(
-            <StyledInput placeholder="Random_URL"></StyledInput>
+            <StyledInput value={this.state.term} onChange={this.onInputChange} placeholder="Insert article link..."></StyledInput>
         );
     }
 }
