@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { IoIosSearch } from 'react-icons/io';
 
-const StyledInput = styled.input`
+const StyledInputContainer = styled.div`
     margin-top: 2em;
-    width: 50%;
+    position: relative;
+`;
+
+const StyledInput = styled.input`
     font-size: 0.9em;
     padding: 0.8em 1.4em 0.8em 1.4em;
     box-sizing: border-box;
@@ -12,11 +15,19 @@ const StyledInput = styled.input`
     border-radius: 2.5em;
     outline: none;
     box-shadow: 0 0 30px 0 rgba(43,86,112,.1);
+    width: 70vw;
 `;
 
-export type Props = {};
+const StyledIconSpan = styled.span`
+    position: relative;
+    pointer-events: none;
+    right: 2em;
+    top: 0.18em;
+`;
 
-export type State = {
+type Props = {};
+
+type State = {
     term: string;
 };
 
@@ -31,7 +42,16 @@ class SearchBar extends Component<Props, State> {
     }
     render(){
         return(
-            <StyledInput value={this.state.term} onChange={this.onInputChange} placeholder="Insert article link..."></StyledInput>
+            <StyledInputContainer>
+                <StyledInput 
+                value={this.state.term}
+                onChange={this.onInputChange}
+                placeholder="Insert article link...">
+                </StyledInput>
+                <StyledIconSpan>
+                    <IoIosSearch />
+                </StyledIconSpan>
+            </StyledInputContainer>
         );
     }
 }
