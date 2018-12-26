@@ -13,6 +13,11 @@ const StyledSearchContainer = styled.div`
     width: 100%;
 `;
 
+const StyledSubtitle = styled.p`
+    margin-top: 2em;
+    font-weight: 500;
+`;
+
 const StyledLogo = styled.img`
     width: 500px;
     height: 130px;
@@ -22,6 +27,7 @@ const SearchSection = () => {
     return(
         <StyledSearchContainer>
             <StyledLogo src={logo} />
+            <StyledSubtitle>Find the political leaning of an article</StyledSubtitle>
             <SearchBar />
         </StyledSearchContainer>
     );

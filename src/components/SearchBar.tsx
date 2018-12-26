@@ -15,12 +15,11 @@ const StyledInput = styled.input`
     border-radius: 2.5em;
     outline: none;
     box-shadow: 0 0 30px 0 rgba(43,86,112,.1);
-    width: 70vw;
+    width: 60vw;
 `;
 
 const StyledIconSpan = styled.span`
     position: relative;
-    pointer-events: none;
     right: 2em;
     top: 0.18em;
 `;
@@ -36,22 +35,29 @@ class SearchBar extends Component<Props, State> {
         super(props);
         this.state = { term: '' };
         this.onInputChange = this.onInputChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
     onInputChange(event: React.FormEvent<HTMLInputElement>) {
         this.setState({term: event.currentTarget.value});
     }
+    onFormSubmit(event: React.FormEvent) {
+        event.preventDefault();
+        console.log("Logging simple message on submit");
+    }
     render(){
         return(
-            <StyledInputContainer>
-                <StyledInput 
-                value={this.state.term}
-                onChange={this.onInputChange}
-                placeholder="Insert article link...">
-                </StyledInput>
-                <StyledIconSpan>
-                    <IoIosSearch />
-                </StyledIconSpan>
-            </StyledInputContainer>
+            <form onSubmit={this.onFormSubmit}>
+                <StyledInputContainer>
+                    <StyledInput 
+                        value={this.state.term}
+                        onChange={this.onInputChange}
+                        placeholder="Insert article link...">
+                    </StyledInput>
+                    <StyledIconSpan onClick={this.onFormSubmit}>
+                        <IoIosSearch />
+                    </StyledIconSpan>
+                </StyledInputContainer>
+            </form>
         );
     }
 }
